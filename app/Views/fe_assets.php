@@ -49,7 +49,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Home<br></a></li>
-          <li><a href="#about">Pengumumant</a></li>
+          <li><a href="#about">Pengumuman</a></li>
           <li><a href="#services">Berita</a></li>
           <!-- <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li> -->
