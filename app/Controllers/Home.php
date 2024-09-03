@@ -11,6 +11,7 @@ class Home extends BaseController
 
     public function dashboard()
     {
-        return view('admin/dashboard');
+        return view('admin/dashboard', ['user'=>'Superadmin']
+        );
     }
 }
