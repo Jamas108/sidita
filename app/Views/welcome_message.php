@@ -29,27 +29,15 @@
 
   <div class="row gy-4">
 
-    <div class="col-xl-2 col-md-3 col-6 client-logo">
-      <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-    </div><!-- End Client Item -->
-
-    <div class="col-xl-2 col-md-3 col-6 client-logo">
-      <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-    </div><!-- End Client Item -->
-
-    <div class="col-xl-2 col-md-3 col-6 client-logo">
-      <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-    </div><!-- End Client Item -->
-
-    <div class="col-xl-2 col-md-3 col-6 client-logo">
+    <div class="col-xl-4 col-md-4 col-4 client-logo">
       <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
     </div><!-- End Client Item -->
 
-    <div class="col-xl-2 col-md-3 col-6 client-logo">
+    <div class="col-xl-4 col-md-4 col-4 client-logo">
       <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
     </div><!-- End Client Item -->
 
-    <div class="col-xl-2 col-md-3 col-6 client-logo">
+    <div class="col-xl-4 col-md-4 col-4 client-logo">
       <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
     </div><!-- End Client Item -->
 
@@ -64,39 +52,49 @@
 
 <!-- Section Title -->
 <div class="container section-title" data-aos="fade-up">
-  <h2>Pengadaan</h2>
+  <h2>Daftar Pengadaan</h2>
   <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
    <!-- table start -->
-   <table id="example" class="display" style="width:100%">
-          <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-                <td>$170,750</td>
-            </tr>
-        </tbody>   
-   </table>
+   <div class="card p-4" style="border-radius:20px overflow-x: scroll">
+        <table id="example" class="display stripe table-responsive" style="width:100%;">
+                <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Tiger Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011-04-25</td>
+                      <td>$320,800</td>
+                  </tr>
+                  <tr>
+                      <td>Garrett Winters</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>63</td>
+                      <td>2011-07-25</td>
+                      <td>$170,750</td>
+                  </tr>
+                  <tr>
+                      <td>Garrett Winters</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>63</td>
+                      <td>2011-07-25</td>
+                      <td>$170,750</td>
+                  </tr>
+              </tbody>   
+        </table>
+      </div>
    <!-- Table Ends  -->
 </div><!-- End Section Title -->
 
@@ -111,7 +109,7 @@
 <!-- Stats Section -->
 <section id="stats" class="stats section">
 
-<div class="container" data-aos="fade-up" data-aos-delay="100">
+<div class="container " data-aos="fade-up" data-aos-delay="100">
 
   <div class="row gy-4 align-items-center">
 
@@ -178,8 +176,8 @@
 
 <!-- Section Title -->
 <div class="container section-title" data-aos="fade-up">
-  <h2>Services</h2>
-  <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  <h2>Pengadaan Terbaru</h2>
+  <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
 </div><!-- End Section Title -->
 
 <div class="container">
