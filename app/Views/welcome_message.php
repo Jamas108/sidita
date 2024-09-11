@@ -55,42 +55,28 @@
   <h2>Daftar Pengadaan</h2>
   <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
    <!-- table start -->
-   <div class="card p-4" style="border-radius:20px overflow-x: scroll">
+   <div class="card p-4 bg-muted" style="border-radius:20px overflow-x: scroll">
         <table id="example" class="display stripe table-responsive" style="width:100%;">
                 <thead>
                   <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th class="text-center">Paket</th>
+                      <th class="text-center">Metode</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center">Persyaratan</th>
                   </tr>
               </thead>
               <tbody>
                   <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011-04-25</td>
-                      <td>$320,800</td>
+                      <td class="text-start">Penyedia Jasa MICE EO UT Daerah Bandung</td>
+                      <td>Undangan</td>
+                      <td class="text-success">Selesai</td>
+                      <td><a href="" class="btn btn-info text-white">Lihat Detail</a></td>
                   </tr>
                   <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011-07-25</td>
-                      <td>$170,750</td>
-                  </tr>
-                  <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011-07-25</td>
-                      <td>$170,750</td>
+                      <td class="text-start">Pengadaan Mobil Operasional SUV</td>
+                      <td>Pengumuman</td>
+                      <td class="text-warning">Sedang Berjalan</td>
+                      <td><a href="" class="btn btn-info text-white">Lihat Detail</a></td>
                   </tr>
               </tbody>   
         </table>
