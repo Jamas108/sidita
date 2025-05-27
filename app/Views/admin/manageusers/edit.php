@@ -9,7 +9,7 @@
         <form action="<?= base_url('updateakunusers/' . $user['id']); ?>" method="POST" enctype="multipart/form-data">
         <div class="bg-white justify-content-between rounded-bottom shadow p-3 mb-3">
                 <div class="form-group">
-                    <label for="nama_penyedia">Nama Penyedia</label>
+                    <label for="nama_penyedia">Nama</label>
                     <input type="text" class="form-control" placeholder="Masukan Nama Penyedia" id="nama_penyedia" name="nama_penyedia"
                         value="<?= isset($user['nama_penyedia']) ? $user['nama_penyedia'] : ''; ?>">
                 </div>
@@ -25,25 +25,11 @@
                 </div>
                 <div class="form-group">
                     <label for="Role"> Role Akun</label>
-                    <select class="form-control" id="role_id" name="role_id">
-                        <option selected>Pilih Role</option>
+                    <select class="form-control" id="role_id" name="role_id" required>
                         <?php foreach ($roleUser as $role): ?>
                             <option value="<?= $role['id']; ?>"><?= $role['role']; ?></option>
                         <?php endforeach; ?>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" placeholder="Masukan Email" id="email" name="email"
-                        value="<?= isset($user['email']) ? $user['email'] : ''; ?>">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" placeholder="Masukan password" id="password" name="password">
-                </div>
-                <div class="form-group">
-                    <label for="konfirmasi_password">Konfirmasi Password</label>
-                    <input type="password" class="form-control" placeholder="Konfirmasi Password" id="konfirmasi_password" name="konfirmasi_password">
                 </div>
                 <div class="row mr-0">
                     <div class="col-md-6">

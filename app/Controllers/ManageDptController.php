@@ -67,15 +67,61 @@ class ManageDptController extends ResourceController
     {
         // Instansiasi model ProfilPerusahaanModel
         $profilPerusahaanModel = new ProfilPerusahaanModel();
-
+    
         // Ambil data profil perusahaan berdasarkan ID
         $data['profilPerusahaan'] = $profilPerusahaanModel->find($profil_perusahaan_id);
-
+    
         // Jika profil perusahaan tidak ditemukan, tampilkan error
         if (!$data['profilPerusahaan']) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Profil perusahaan tidak ditemukan');
         }
-
+    
+        // Ambil semua provinsi dari API
+        $provinsiApiUrl = 'https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json';
+        $provinsiResponse = @file_get_contents($provinsiApiUrl);
+        if ($provinsiResponse !== false) {
+            $data['provinsiList'] = json_decode($provinsiResponse, true);
+        } else {
+            $data['provinsiList'] = []; // Empty array if API fails
+        }
+    
+        // Jika ada provinsi ID, ambil kabupaten untuk provinsi tersebut
+        if (!empty($data['profilPerusahaan']['provinsi'])) {
+            $kabupatenApiUrl = "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/{$data['profilPerusahaan']['provinsi']}.json";
+            $kabupatenResponse = @file_get_contents($kabupatenApiUrl);
+            if ($kabupatenResponse !== false) {
+                $data['kabupatenList'] = json_decode($kabupatenResponse, true);
+            } else {
+                $data['kabupatenList'] = []; // Empty array if API fails
+            }
+        } else {
+            $data['kabupatenList'] = [];
+        }
+    
+        // Get the current province and district names
+        $provinsiNama = '';
+        $kabupatenNama = '';
+        
+        // Find province name
+        foreach ($data['provinsiList'] as $provinsi) {
+            if ($provinsi['id'] == $data['profilPerusahaan']['provinsi']) {
+                $provinsiNama = $provinsi['name'];
+                break;
+            }
+        }
+        
+        // Find district name
+        foreach ($data['kabupatenList'] as $kabupaten) {
+            if ($kabupaten['id'] == $data['profilPerusahaan']['kabupaten']) {
+                $kabupatenNama = $kabupaten['name'];
+                break;
+            }
+        }
+        
+        // Add names to data
+        $data['profilPerusahaan']['provinsi_nama'] = $provinsiNama;
+        $data['profilPerusahaan']['kabupaten_nama'] = $kabupatenNama;
+    
         // Kirimkan data ke view
         return view('admin/managedpt/edit/profilperusahaan', ['data' => $data]);
     }
@@ -168,6 +214,7 @@ class ManageDptController extends ResourceController
 
         // Daftar nama file yang diupload
         $fileFields = [
+            'file_bukti_pejabat_berwenang',
             'file_formulir_keikutsertaan',
             'file_surat_pernyataan',
             'file_pakta_integritas',
@@ -175,6 +222,11 @@ class ManageDptController extends ResourceController
             'file_surat_keterangan_domisili',
             'file_nib',
             'file_siup',
+            'file_siujk',
+            'file_pendukung_kualifikasi',
+            'file_pendukung_kualifikasi2',
+            'file_pendukung_kualifikasi3',
+            
         ];
 
         // Memuat model untuk mendapatkan data lama
@@ -352,5 +404,55 @@ class ManageDptController extends ResourceController
     public function indexPenerimaanDpt()
     {
         return view('admin/managedpt/penerimaandpt/index', ['user' => 'Superadmin']);
+    }
+    private function getProvinsiName($provinsiId)
+    {
+        // URL API provinsi yang benar
+        $apiUrl = "https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json";
+
+        try {
+            // Mengambil data dari API
+            $response = file_get_contents($apiUrl);
+            $provinsiData = json_decode($response, true);
+
+            // Cari provinsi berdasarkan ID
+            foreach ($provinsiData as $provinsi) {
+                if ($provinsi['id'] == $provinsiId) {
+                    return $provinsi['name']; // Perhatikan, kuncinya adalah 'name', bukan 'nama'
+                }
+            }
+
+            // Jika tidak ditemukan
+            return 'Nama Provinsi Tidak Ditemukan';
+        } catch (\Exception $e) {
+            // Jika terjadi error, kembalikan pesan default
+            return 'Nama Provinsi Tidak Tersedia';
+        }
+    }
+
+    // Fungsi untuk mendapatkan nama kabupaten dari API berdasarkan ID
+    private function getKabupatenName($provinsiId, $kabupatenId)
+    {
+        // URL API kabupaten yang benar
+        $apiUrl = "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/$provinsiId.json";
+
+        try {
+            // Mengambil data dari API
+            $response = file_get_contents($apiUrl);
+            $kabupatenData = json_decode($response, true);
+
+            // Cari kabupaten berdasarkan ID
+            foreach ($kabupatenData as $kabupaten) {
+                if ($kabupaten['id'] == $kabupatenId) {
+                    return $kabupaten['name']; // Perhatikan, kuncinya adalah 'name', bukan 'nama'
+                }
+            }
+
+            // Jika tidak ditemukan
+            return 'Nama Kabupaten Tidak Ditemukan';
+        } catch (\Exception $e) {
+            // Jika terjadi error, kembalikan pesan default
+            return 'Nama Kabupaten Tidak Tersedia';
+        }
     }
 }

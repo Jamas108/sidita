@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\DptModel;
 use App\Models\PekerjaanModel;
+use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
@@ -20,12 +21,20 @@ class ManagePekerjaanController extends ResourceController
     public function create()
     {
         $dptModel = new DptModel();
+        $userModel = new UserModel();
 
-        // Ambil data dengan status_dpt_id 1
+        // Ambil data DPT
         $dptData = $dptModel->getDptWithProfileEmail();
 
-        return view('admin/managepekerjaan/create', ['dptData' => $dptData]);
+        // Ambil data ppk
+        $ppkData = $userModel->getUsersByRoleId(3);
+
+        return view('admin/managepekerjaan/create', [
+            'dptData' => $dptData,
+            'ppkData' => $ppkData
+        ]);
     }
+
     public function store()
     {
         $validationRules = [
@@ -60,7 +69,7 @@ class ManagePekerjaanController extends ResourceController
             'akhir_kontrak' => [
                 'required' => 'Akhir Kontrak wajib diisi.',
             ],
-            
+
         ];
 
         if (!$this->validate($validationRules, $validationMessages)) {
@@ -113,26 +122,35 @@ class ManagePekerjaanController extends ResourceController
         return view('admin/managepekerjaan/show', ['detailPekerjaan' => $detailPekerjaan]);
     }
     public function editPekerjaan($id)
-    {
-        $pekerjaanModel = new PekerjaanModel();
-        $dptModel = new DptModel();
-
-        // Ambil data pekerjaan berdasarkan ID
-        $pekerjaan = $pekerjaanModel->find($id);
-        // Ambil data dengan status_dpt_id 1
-        $dptData = $dptModel->getDptWithProfileEmail();
-
-        // Periksa apakah data pekerjaan ditemukan
-        if (!$pekerjaan) {
-            return redirect()->to('adminmanagepekerjaan')->with('error', 'Data pekerjaan tidak ditemukan.');
-        }
-
-        return view('admin/managepekerjaan/edit', [
-            'pekerjaan' => $pekerjaan,
-            'dptData' => $dptData,
-
-        ]);
+{
+    $pekerjaanModel = new PekerjaanModel();
+    $dptModel = new DptModel();
+    $userModel = new UserModel();
+    
+    // Get job data by ID - contains the current PPK name 
+    $pekerjaan = $pekerjaanModel->find($id);
+    
+    if (!$pekerjaan) {
+        return redirect()->to('adminmanagepekerjaan')->with('error', 'Data pekerjaan tidak ditemukan.');
     }
+    
+    // Get current PPK name from pekerjaan table
+    $currentPpkName = $pekerjaan['ppk'];
+    
+    // Get all PPK users from users table (role_id = 3)
+    $ppkData = $userModel->getUsersByRoleId(3);
+    
+    // Get DPT data
+    $dptData = $dptModel->getDptWithProfileEmail();
+
+    return view('admin/managepekerjaan/edit', [
+        'pekerjaan' => $pekerjaan,
+        'dptData' => $dptData,
+        'ppkData' => $ppkData,
+        'currentPpkName' => $currentPpkName, // Pass the current PPK name explicitly
+    ]);
+}
+
     public function updatePekerjaan($id)
     {
         $pekerjaanModel = new PekerjaanModel();

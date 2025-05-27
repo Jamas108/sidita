@@ -27,6 +27,9 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="pengalaman-tab" data-bs-toggle="tab" data-bs-target="#pengalaman-tab-pane" type="button" role="tab" aria-controls="pengalaman-tab-pane" aria-selected="false">Informasi Pengalaman</button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pekerjaan-tab" data-bs-toggle="tab" data-bs-target="#pekerjaan-tab-pane" type="button" role="tab" aria-controls="pekerjaan-tab-pane" aria-selected="false">Riwayat Pekerjaan</button>
+                </li>
             </ul>
 
             <!-- FIELD FORM PROFILE PERUSAHAAN -->
@@ -550,79 +553,100 @@
                 <!-- FORM PENGALAMAN -->
                 <div class="tab-pane fade" id="pengalaman-tab-pane" role="tabpanel" aria-labelledby="pengalaman-tab" tabindex="0">
                     <div id="pengalaman-container">
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-3">
+                            <h1 class="h4 mb-0 text-black-800">Daftar Pengalaman</h1>
+                        </div>
                         <?php if (!empty($experiences)): ?>
-                            <?php foreach ($experiences as $index => $experience): ?>
-                                <div class="pengalaman-item">
-                                    <p class="text-start mt-3 pengalaman-title" style="color: black; font-size:medium">Pengalaman Pertama</p>
-                                    <div class="form-group" style="margin-top: -20px;">
-                                        <p for="no_kontrak" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">No. Kontrak</p>
-                                        <input style="margin-top:-15px" type="text" class="form-control"
-                                            id="no_kontrak" name="no_kontrak" readonly
-                                            value="<?= esc($experience['no_kontrak']) ?>">
-                                    </div>
-                                    <div class="form-group" style="margin-top: -10px;">
-                                        <p for="nama_pekerjaan" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">Nama Pekerjaan</p>
-                                        <input style="margin-top:-15px" type="text" class="form-control"
-                                            id="nama_pekerjaan" name="nama_pekerjaan" readonly
-                                            value="<?= esc($experience['nama_pekerjaan']) ?>">
-                                    </div>
-                                    <div class="form-group" style="margin-top: -10px;">
-                                        <p for="bidang_pekerjaan" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">Bidang Pekerjaan</p>
-                                        <input style="margin-top:-15px" type="text" class="form-control"
-                                            id="bidang_pekerjaan" name="bidang_pekerjaan" readonly
-                                            value="<?= esc($experience['bidang_pekerjaan']) ?>">
-                                    </div>
-                                    <div class="form-group" style="margin-top: -10px;">
-                                        <p for="pemilik_pekerjaan" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">Pemilik Pekerjaan</p>
-                                        <input style="margin-top:-15px" type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="<?= esc($experience['pemilik_pekerjaan']) ?>">
-                                    </div>
-                                    <div class="form-group" style="margin-top: -10px;">
-                                        <p for="alamat_pekerjaan" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">Alamat Pekerjaan</p>
-                                        <input style="margin-top:-15px" type="text" class="form-control"
-                                            id="alamat_pekerjaan" name="alamat_pekerjaan" readonly
-                                            value="<?= esc($experience['alamat_pekerjaan']) ?>">
-                                    </div>
-                                    <div class="form-group" style="margin-top: -10px;">
-                                        <p for="no_telp_pekerjaan" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">No. Telp Pekerjaan</p>
-                                        <input style="margin-top:-15px" type="text" class="form-control"
-                                            id="no_telp_pekerjaan" name="no_telp_pekerjaan" readonly
-                                            value="<?= esc($experience['no_telp_pekerjaan']) ?>">
-                                    </div>
-                                    <div class="form-group" style="margin-top: -10px;">
-                                        <p for="lokasi_pekerjaan" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">Lokasi Kerja</p>
-                                        <input style="margin-top:-15px" type="text" class="form-control"
-                                            id="lokasi_pekerjaan" name="lokasi_pekerjaan" readonly
-                                            value="<?= esc($experience['lokasi_pekerjaan']) ?>">
-                                    </div>
-                                    <div class="form-group" style="margin-top: -10px;">
-                                        <p for="nilai_proyek" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">Nilai Proyek</p>
-                                        <input style="margin-top:-15px" type="text" class="form-control"
-                                            id="nilai_proyek" name="nilai_proyek" readonly
-                                            value="<?= esc($experience['nilai_proyek']) ?>">
-                                    </div>
-                                    <div class="form-group" style="margin-top: -10px;">
-                                        <p for="tanggal_bast" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">Tanggal BAST</p>
-                                        <input style="margin-top:-15px" type="text" class="form-control"
-                                            id="tanggal_bast" name="tanggal_bast" readonly
-                                            value="<?= esc($experience['tanggal_bast']) ?>">
-                                    </div>
-                                    <div class="form-group" style="margin-top: -10px;">
-                                        <p for="file_bukti_pengalaman" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">Upload File Bukti</p>
-                                        <?php if (!empty($experience['file_bukti_pengalaman'])): ?>
-                                            <a href="/file/<?= esc($experience['file_bukti_pengalaman']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
-                                                Lihat File
-                                            </a>
-                                        <?php else: ?>
-                                            <p class="text-danger">Tidak ada file yang tersedia.</p>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
+
+                            <div class="table-responsive mt-2">
+                                <table class="table table-striped table-bordered">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>No. Kontrak</th>
+                                            <th>Nama Pekerjaan</th>
+                                            <th>Bidang Pekerjaan</th>
+                                            <th>Pemilik Pekerjaan</th>
+                                            <th>Alamat Pekerjaan</th>
+                                            <th>No. Telp Pekerjaan</th>
+                                            <th>Lokasi Kerja</th>
+                                            <th>Nilai Proyek</th>
+                                            <th>Tanggal BAST</th>
+                                            <th>Bukti Pengalaman</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($experiences as $index => $experience): ?>
+                                            <tr>
+                                                <td><?= ($index + 1) ?></td>
+                                                <td><?= esc($experience['no_kontrak']) ?></td>
+                                                <td><?= esc($experience['nama_pekerjaan']) ?></td>
+                                                <td><?= esc($experience['bidang_pekerjaan']) ?></td>
+                                                <td><?= esc($experience['pemilik_pekerjaan']) ?></td>
+                                                <td><?= esc($experience['alamat_pekerjaan']) ?></td>
+                                                <td><?= esc($experience['no_telp_pekerjaan']) ?></td>
+                                                <td><?= esc($experience['lokasi_pekerjaan']) ?></td>
+                                                <td><?= esc($experience['nilai_proyek']) ?></td>
+                                                <td><?= esc($experience['tanggal_bast']) ?></td>
+                                                <td>
+                                                    <?php if (!empty($experience['file_bukti_pengalaman'])): ?>
+                                                        <a href="/file/<?= esc($experience['file_bukti_pengalaman']) ?>" target="_blank" class="btn btn-primary btn-sm">
+                                                            Lihat File
+                                                        </a>
+                                                    <?php else: ?>
+                                                        <span class="text-danger">Tidak ada file</span>
+                                                    <?php endif; ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <?php else: ?>
+                            <div class="alert alert-info">Tidak ada data pengalaman yang tersedia.</div>
                         <?php endif; ?>
                     </div>
-
+                </div>
+                <div class="tab-pane fade" id="pekerjaan-tab-pane" role="tabpanel" aria-labelledby="pekerjaan-tab" tabindex="0">
+                    <div id="pekerjaan-container">
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-3">
+                            <h1 class="h4 mb-0 text-black-800">Daftar Riwayat Pekerjaan</h1>
+                        </div>
+                        <div class="table-responsive mt-2">
+                            <table class="table table-striped table-bordered">
+                                <thead class="bg-primary text-white">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Tanggal</th>
+                                        <th>Paket Pengadaan</th>
+                                        <th>Lokasi</th>
+                                        <th>No Kontrak</th>
+                                        <th>Tanggal Kontrak</th>
+                                        <th>Akhir Kontrak</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($riwayatpekerjaan as $index => $pekerjaan): ?>
+                                        <tr>
+                                            <td><?= ($index + 1) ?></td>
+                                            <td><?= esc($pekerjaan['tanggal_pembuatan']) ?></td>
+                                            <td><?= esc($pekerjaan['nama_paket_pengadaan']) ?></td>
+                                            <td><?= esc($pekerjaan['lokasi_pekerjaan']) ?></td>
+                                            <td><?= esc($pekerjaan['nomor_kontrak']) ?></td>
+                                            <td><?= esc($pekerjaan['tanggal_kontrak']) ?></td>
+                                            <td><?= esc($pekerjaan['akhir_kontrak']) ?></td>
+                                            <td>
+                                                <a href="<?= base_url('detailriwayatpekerjaanpenyedia/' . $pekerjaan['id']); ?>" class="btn btn-sm btn-secondary">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -49,7 +49,7 @@
                                     </td>
                                     <td class="text-center">
                                         <?php if (!empty($event['berita_acara'])): ?>
-                                            <a href="<?= base_url('uploads/berita_acara_event/' . $event['berita_acara']); ?>" target="_blank" class="btn-sm btn-success" style="text-decoration:none">
+                                            <a href="<?= base_url('uploads/berita_acara_event/' . $event['berita_acara']) ?>" target="_blank" class="btn-sm btn-success" style="text-decoration:none">
                                                 <i class="fas fa-file-alt"></i> Lihat
                                             </a>
                                         <?php else: ?>
@@ -58,7 +58,7 @@
                                     </td>
                                     <td class="text-center">
                                         <?php if (!empty($event['dokumen'])): ?>
-                                            <a href="<?= base_url('uploads/dokumenevent/' . $event['dokumen']); ?>" target="_blank" class="btn-sm btn-success" style="text-decoration:none">
+                                            <a href="<?= base_url('uploads/dokumenevent/' . $event['dokumen']) ?>" target="_blank" class="btn-sm btn-success" style="text-decoration:none">
                                                 <i class="fas fa-file-alt"></i> Lihat
                                             </a>
                                         <?php else: ?>
@@ -70,6 +70,7 @@
                                         <form action="<?= base_url('updateStatusEvent/' . $event['id']); ?>" method="post" class="status-form">
                                             <select name="status" class="form-select" onchange="this.form.submit()">
                                                 <option value="Pending" <?= $event['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
+                                                <option value="Pendaftaran" <?= $event['status'] == 'Pendaftaran' ? 'selected' : ''; ?>>Registrasi</option>
                                                 <option value="Berjalan" <?= $event['status'] == 'Berjalan' ? 'selected' : ''; ?>>Berjalan</option>
                                                 <option value="Selesai" <?= $event['status'] == 'Selesai' ? 'selected' : ''; ?>>Selesai</option>
                                             </select>

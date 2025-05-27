@@ -53,12 +53,12 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('operatordashboard'); ?>">
+            <div class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('operatordashboard'); ?>">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-folder"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">SIDITA</div>
-            </a>
+            </div>
             <hr class="sidebar-divider my-0">
             <li class="nav-item active">
                 <a class="nav-link" href="<?= base_url('operatordashboard'); ?>">

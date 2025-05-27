@@ -57,15 +57,15 @@
                                     </td>
                                     <td class="text-center align-middle">
                                         <div class="d-flex justify-content-center">
-                                            <a href="<?= base_url('detailpekerjaan/' . $data['id']); ?>" class="btn-sm btn-secondary " style="text-decoration:none">
+                                            <a href="<?= base_url('detailpekerjaan/' . $data['id']); ?>" class="btn btn-sm btn-secondary " style="text-decoration:none">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="<?= base_url('editpekerjaan/' . $data['id']); ?>" class="btn-sm btn-warning mr-2 ml-2" style="text-decoration:none">
+                                            <a href="<?= base_url('editpekerjaan/' . $data['id']); ?>" class="btn btn-sm btn-warning mr-2 ml-2" style="text-decoration:none">
                                                 <i class="fas fa-edit"></i>
                                             </a>
                                             <form action="<?= base_url('managepekerjaan/delete/' . $data['id']); ?>" method="post" onsubmit="return confirm('Are you sure you want to delete this job?');">
                                                 <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                             </form>
 
                                     </td>

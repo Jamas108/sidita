@@ -236,7 +236,8 @@
                         </p>
 
                         <?php if (!empty($participant['file_bukti_pejabat_berwenang'])): ?>
-                            <a href="/file/<?= esc($participant['file_bukti_pejabat_berwenang']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            
+                            <a href="<?= base_url($participant['file_bukti_pejabat_berwenang']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -254,7 +255,7 @@
                     <div class="form-group">
                         <p for="file_formulir_keikutsertaan" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_formulir_keikutsertaan'])): ?>
-                            <a href="/file/<?= esc($participant['file_formulir_keikutsertaan']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_formulir_keikutsertaan']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -271,7 +272,7 @@
                     <div class="form-group">
                         <p for="file_surat_pernyataan" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_surat_pernyataan'])): ?>
-                            <a href="/file/<?= esc($participant['file_surat_pernyataan']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_surat_pernyataan']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -288,7 +289,7 @@
                     <div class="form-group">
                         <p for="file_pakta_integritas" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_pakta_integritas'])): ?>
-                            <a href="/file/<?= esc($participant['file_pakta_integritas']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_pakta_integritas']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -305,7 +306,7 @@
                     <div class="form-group">
                         <p for="file_akta_pendirian_perusahaan" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_akta_pendirian_perusahaan'])): ?>
-                            <a href="/file/<?= esc($participant['file_akta_pendirian_perusahaan']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_akta_pendirian_perusahaan']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -322,7 +323,7 @@
                     <div class="form-group">
                         <p for="file_surat_keterangan_domisili" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_surat_keterangan_domisili'])): ?>
-                            <a href="/file/<?= esc($participant['file_surat_keterangan_domisili']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_surat_keterangan_domisili']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -339,7 +340,7 @@
                     <div class="form-group">
                         <p for="file_nib" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_nib'])): ?>
-                            <a href="/file/<?= esc($participant['file_nib']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_nib']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -356,7 +357,7 @@
                     <div class="form-group">
                         <p for="file_siup" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_siup'])): ?>
-                            <a href="/file/<?= esc($participant['file_siup']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_siup']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -373,7 +374,7 @@
                     <div class="form-group">
                         <p for="file_siujk" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_siujk'])): ?>
-                            <a href="/file/<?= esc($participant['file_siujk']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_siujk']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -390,7 +391,7 @@
                     <div class="form-group">
                         <p for="file_sbu" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_sbu'])): ?>
-                            <a href="/file/<?= esc($participant['file_sbu']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_sbu']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -407,7 +408,7 @@
                     <div class="form-group">
                         <p for="file_pendukung_kualifikasi" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_pendukung_kualifikasi'])): ?>
-                            <a href="/file/<?= esc($participant['file_pendukung_kualifikasi']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_pendukung_kualifikasi']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -424,7 +425,7 @@
                     <div class="form-group">
                         <p for="file_pendukung_kualifikasi2" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_pendukung_kualifikasi2'])): ?>
-                            <a href="/file/<?= esc($participant['file_pendukung_kualifikasi2']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_pendukung_kualifikasi2']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -441,7 +442,7 @@
                     <div class="form-group">
                         <p for="file_pendukung_kualifikasi3" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_pendukung_kualifikasi3'])): ?>
-                            <a href="/file/<?= esc($participant['file_pendukung_kualifikasi3']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_pendukung_kualifikasi3']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -463,7 +464,7 @@
                     <div class="form-group">
                         <p for="file_laporan_keuangan" class="text-start" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_laporan_keuangan'])): ?>
-                            <a href="/file/<?= esc($participant['file_laporan_keuangan']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_laporan_keuangan']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -480,7 +481,7 @@
                     <div class="form-group">
                         <p for="file_rekening_koran_3_bulan" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_rekening_koran_3_bulan'])): ?>
-                            <a href="/file/<?= esc($participant['file_rekening_koran_3_bulan']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_rekening_koran_3_bulan']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -497,7 +498,7 @@
                     <div class="form-group">
                         <p for="file_sppkp" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_sppkp'])): ?>
-                            <a href="/file/<?= esc($participant['file_sppkp']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_sppkp']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -514,7 +515,7 @@
                     <div class="form-group">
                         <p for="file_npwp" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_npwp'])): ?>
-                            <a href="/file/<?= esc($participant['file_npwp']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_npwp']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -531,7 +532,7 @@
                     <div class="form-group">
                         <p for="file_lapor_tahunan_pajak" class="text-start mt-2" style="font-size: 15px; font-weight:bold;">File Bukti</p>
                         <?php if (!empty($participant['file_lapor_tahunan_pajak'])): ?>
-                            <a href="/file/<?= esc($participant['file_lapor_tahunan_pajak']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                            <a href="<?= base_url($participant['file_lapor_tahunan_pajak']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                 Lihat File
                             </a>
                         <?php else: ?>
@@ -604,7 +605,7 @@
                                     <div class="form-group" style="margin-top: -10px;">
                                         <p for="file_bukti_pengalaman" class="text-start mt-4" style="font-size: 15px; font-weight:bold;">Upload File Bukti</p>
                                         <?php if (!empty($experience['file_bukti_pengalaman'])): ?>
-                                            <a href="/file/<?= esc($experience['file_bukti_pengalaman']) ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
+                                            <a href="<?= base_url($experience['file_bukti_pengalaman']); ?>" target="_blank" class="btn btn-primary" style="margin-top: -10px;">
                                                 Lihat File
                                             </a>
                                         <?php else: ?>

@@ -20,6 +20,7 @@
                         placeholder="Unggah File" id="file_laporan_keuangan" name="file_laporan_keuangan"
                         value="">
                     <?php if (!empty($data['file_laporan_keuangan'])): ?>
+                        <a href="<?= esc($data['file_laporan_keuangan']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -80,11 +81,11 @@
                         value="">
                     <?php if (!empty($data['file_npwp'])): ?>
                         <a href="<?= esc($data['file_npwp']) ?>" target="_blank" class="btn btn-primary mt-2">
-                                Lihat File
-                            </a>
-                        <?php else: ?>
-                            <p class=" text-danger">Tidak ada file yang tersedia.</p>
-                        <?php endif; ?>
+                            Lihat File
+                        </a>
+                    <?php else: ?>
+                        <p class=" text-danger">Tidak ada file yang tersedia.</p>
+                    <?php endif; ?>
                 </div>
                 <p class="text-start mt-3" style="color: black; font-size:medium; font-weight:bold;">5. Bukti Lapor Tahunan Pajak</p>
                 <div class="form-group" style="margin-top: -20px;">
@@ -100,11 +101,11 @@
                         value="">
                     <?php if (!empty($data['file_lapor_tahunan_pajak'])): ?>
                         <a href="<?= esc($data['file_lapor_tahunan_pajak']) ?>" target="_blank" class="btn btn-primary mt-2">
-                                Lihat File
-                            </a>
-                        <?php else: ?>
-                            <p class=" text-danger">Tidak ada file yang tersedia.</p>
-                        <?php endif; ?>
+                            Lihat File
+                        </a>
+                    <?php else: ?>
+                        <p class=" text-danger">Tidak ada file yang tersedia.</p>
+                    <?php endif; ?>
                 </div>
                 <button type="submit" class="btn btn-primary mt-3">Edit Administrasi Perusahaan</button>
             </div>

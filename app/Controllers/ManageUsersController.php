@@ -152,7 +152,6 @@ class ManageUsersController extends ResourceController
             'nama_penyedia' => $this->request->getPost('nama_penyedia'),
             'nip' => $this->request->getPost('nip'),
             'jabatan' => $this->request->getPost('jabatan'),
-            'email' => $this->request->getPost('email'),
             'role_id' => $this->request->getPost('role_id'),
         ];
 

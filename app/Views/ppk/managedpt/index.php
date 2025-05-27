@@ -4,13 +4,6 @@
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Kelola DPT</h1>
-        <ul class="list-inline mb-0 float-end">
-            <li class="list-inline-item">
-                <a href="<?= base_url('createakunusers'); ?>"
-                    class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-plus fa-sm text-white-50"></i>Tambah Penyedia Tetap</a>
-            </li>
-        </ul>
     </div>
     <div class="container-fluid pt-2 px-2">
         <div class="bg-white justify-content-between rounded shadow p-4 mb-3">

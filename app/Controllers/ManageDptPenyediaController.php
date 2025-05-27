@@ -4,7 +4,9 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\DptModel;
+use App\Models\PekerjaanModel;
 use App\Models\PengalamanPerusahaanModel;
+use App\Models\PenilaianPekerjaanModel;
 use App\Models\ProfilPerusahaanModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
@@ -30,6 +32,10 @@ class ManageDptPenyediaController extends BaseController
         // Load model Dpt
         $DPTModel = new DptModel();
 
+        $dptData = $DPTModel->where('profil_perusahaan_id', $profilPerusahaanId)->first();
+        $dptId = $dptData['id'];
+        
+
         // Ambil satu data DPT berdasarkan profil_perusahaan_id
         $dptData = $DPTModel->where('profil_perusahaan_id', $profilPerusahaanId)->first();
 
@@ -39,15 +45,17 @@ class ManageDptPenyediaController extends BaseController
 
         // Load model PengalamanPerusahaan
         $pengalamanModel = new PengalamanPerusahaanModel();
-
         // Ambil data pengalaman berdasarkan profil_perusahaan_id
         $experiences = $pengalamanModel->where('profil_perusahaan_id', $profilPerusahaanId)->findAll();
 
+        $pekerjaanModel = new PekerjaanModel();
+        $riwayatpekerjaan = $pekerjaanModel->where('dpt_id', $dptId)->findAll();
         // Kirim data DPT dan pengalaman ke view
         return view('penyedia_tetap/managedpt/index', [
             'dptData' => $dptData,
             'profilPerusahaan' => $profilPerusahaan,
-            'experiences' => $experiences
+            'experiences' => $experiences,
+            'riwayatpekerjaan' => $riwayatpekerjaan
         ]);
     }
     public function detailPenyedia($id)
@@ -131,5 +139,18 @@ class ManageDptPenyediaController extends BaseController
             // Jika gagal update, redirect kembali dengan error
             return redirect()->back()->with('error', 'Gagal memperbarui profil perusahaan');
         }
+    }
+    public function detailRiwayatPekerjaan($id){
+    
+        $pekerjaanModel = new PekerjaanModel();
+        $penilaianModel = new PenilaianPekerjaanModel(); // Create model for penilaian
+    
+        $detailPekerjaan = $pekerjaanModel->getPekerjaanById($id);
+        $penilaianPekerjaan = $penilaianModel->getPenilaianByPekerjaanId($id); // Get assessment data
+        
+        return view('penyedia_tetap/managedpt/detailpekerjaan', [
+            'detailPekerjaan' => $detailPekerjaan,
+            'penilaianPekerjaan' => $penilaianPekerjaan // Pass assessment data to view
+        ]);
     }
 }

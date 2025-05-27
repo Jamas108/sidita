@@ -655,193 +655,133 @@
                 </div>
 
                 <!-- RIWAYAT PEKERJAAN -->
+                <!-- RIWAYAT PEKERJAAN -->
                 <div class="tab-pane fade" id="pekerjaan-tab-pane" role="tabpanel" aria-labelledby="pekerjaan-tab" tabindex="0">
-                    <div id="pekerjaan-container">
-                        <div id="pekerjaan-container">
-                            <?php $index = 1;  ?>
-                            <?php foreach ($dptDetail['pekerjaan'] as $pekerjaan): ?>
-                                <div class="d-flex row justify-content-between">
-                                    <div class="form-group col-md-12 mt-3 ">
-                                        <input type="text" class="form-control text-center bg-primary text-white font-weight-bold"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="Pekerjaan <?= $index; // Menampilkan nomor urut 
-                                                                ?>">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="Nama Paket Pengadaan">
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="<?= esc($pekerjaan['nama_paket_pengadaan']) ?>">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="Lokasi Pekerjaan">
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="<?= esc($pekerjaan['lokasi_pekerjaan']) ?>">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="Nomor Kontrak">
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="<?= esc($pekerjaan['nomor_kontrak']) ?>">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="Tanggal Kontrak">
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="<?= esc($pekerjaan['tanggal_kontrak']) ?>">
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="Akhir Kontrak">
-                                    </div>
-                                    <div class="form-group col-md-8">
-                                        <input type="text" class="form-control"
-                                            id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                            value="<?= esc($pekerjaan['akhir_kontrak']) ?>">
-                                    </div>
-                                    <h4 class="mt-2">Penilaian</h4>
-                                    <?php if (!empty($pekerjaan['penilaian'])): ?>
-                                        <?php foreach ($pekerjaan['penilaian'] as $penilaian): ?>
-                                            <div class="form-group col-md-3 mt-2">
-                                                <input type="text" class="form-control bg-info text-white"
-                                                    id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                                    value="Nama Penilai">
-                                            </div>
-                                            <div class="form-group col-md-9 mt-2">
-                                                <input type="text" class="form-control bg-info text-white"
-                                                    id="pemilik_pekerjaan" name="pemilik_pekerjaan" readonly
-                                                    value="<?= esc($penilaian['nama_penilai']) ?>">
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 mb-4">
-                                                <div class="card border-left-success shadow h-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                                    Nilai Kinerja Kualitas dan Kuantitas Pekerjaan</div>
-                                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= esc($penilaian['nilai_kinerja_kualitas_dan_kuantitas_pekerjaan']) ?></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 mb-4">
-                                                <div class="card border-left-success shadow h-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                                    Nilai Kinerja Biaya</div>
-                                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= esc($penilaian['nilai_kinerja_biaya']) ?></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 mb-4">
-                                                <div class="card border-left-success shadow h-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                                    Nilai Kinerja Waktu</div>
-                                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= esc($penilaian['nilai_kinerja_waktu']) ?></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-md-6 mb-4">
-                                                <div class="card border-left-success shadow h-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                                    Nilai Kinerja Layanan</div>
-                                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?= esc($penilaian['nilai_kinerja_layanan']) ?></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 col-md-6 mb-4">
-                                                <div class="card border-left-primary shadow h-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                                    Nilai Total Kinerja</div>
-                                                                <div class="h5 mb-0 font-weight-bold text-gray-800 nilai-total-kinerja"><?= esc($penilaian['nilai_total_kinerja']) ?></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                    <div id="pekerjaan-container" class="mt-3">
+                        <!-- Main Work History Table -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="bg-primary text-white">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama Paket Pengadaan</th>
+                                        <th>Lokasi Pekerjaan</th>
+                                        <th>Nomor Kontrak</th>
+                                        <th>Tanggal Kontrak</th>
+                                        <th>Akhir Kontrak</th>
+                                        <th>Rata-Rata Nilai</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $index = 1;
+                                    $totalNilai = 0;
+                                    $pekerjaanCount = 0; ?>
+                                    <?php foreach ($dptDetail['pekerjaan'] as $pekerjaan): ?>
+                                        <?php
+                                        $nilaiRataRata = 0;
+                                        $penilaianCount = 0;
+                                        if (!empty($pekerjaan['penilaian'])) {
+                                            foreach ($pekerjaan['penilaian'] as $penilaian) {
+                                                $nilaiRataRata += floatval($penilaian['nilai_total_kinerja']);
+                                                $penilaianCount++;
+                                            }
+                                            if ($penilaianCount > 0) {
+                                                $nilaiRataRata = $nilaiRataRata / $penilaianCount;
+                                                $totalNilai += $nilaiRataRata;
+                                                $pekerjaanCount++;
+                                            }
+                                        }
+                                        ?>
+                                        <tr>
+                                            <td><?= $index ?></td>
+                                            <td><?= esc($pekerjaan['nama_paket_pengadaan']) ?></td>
+                                            <td><?= esc($pekerjaan['lokasi_pekerjaan']) ?></td>
+                                            <td><?= esc($pekerjaan['nomor_kontrak']) ?></td>
+                                            <td><?= esc($pekerjaan['tanggal_kontrak']) ?></td>
+                                            <td><?= esc($pekerjaan['akhir_kontrak']) ?></td>
+                                            <td class="text-center font-weight-bold">
+                                                <?= number_format($nilaiRataRata, 2) ?>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#penilaianModal<?= $index ?>">
+                                                    Lihat Penilaian
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <?php $index++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                                
+                            </table>
+                        </div>
 
-                                            <div class="col-xl-12 col-md-6 mb-4">
-                                                <div class="card border-left-warning shadow h-100 py-2">
-                                                    <div class="card-body">
-                                                        <div class="row no-gutters align-items-center">
-                                                            <div class="col mr-2">
-                                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                                    Catatan</div>
-                                                                <div class="p mb-0 text-gray-800"><?= esc($penilaian['catatan']) ?></div>
-                                                            </div>
+                        <!-- Modals for each pekerjaan's penilaian details -->
+                        <?php $index = 1; ?>
+                        <?php foreach ($dptDetail['pekerjaan'] as $pekerjaan): ?>
+                            <div class="modal fade" id="penilaianModal<?= $index ?>" tabindex="-1" aria-labelledby="penilaianModalLabel<?= $index ?>" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header bg-primary text-white">
+                                            <h5 class="modal-title" id="penilaianModalLabel<?= $index ?>">Penilaian untuk: <?= esc($pekerjaan['nama_paket_pengadaan']) ?></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <?php if (!empty($pekerjaan['penilaian'])): ?>
+                                                <?php foreach ($pekerjaan['penilaian'] as $penilaianIndex => $penilaian): ?>
+                                                    <div class="border rounded p-3 mb-3">
+                                                        <h6 class="bg-info text-white p-2 rounded">Penilai: <?= esc($penilaian['nama_penilai']) ?></h6>
+
+                                                        <table class="table table-bordered">
+                                                            <thead class="bg-light">
+                                                                <tr>
+                                                                    <th>Aspek Penilaian</th>
+                                                                    <th width="150">Nilai</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Kualitas dan Kuantitas Pekerjaan</td>
+                                                                    <td class="text-center"><?= esc($penilaian['nilai_kinerja_kualitas_dan_kuantitas_pekerjaan']) ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Kinerja Biaya</td>
+                                                                    <td class="text-center"><?= esc($penilaian['nilai_kinerja_biaya']) ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Kinerja Waktu</td>
+                                                                    <td class="text-center"><?= esc($penilaian['nilai_kinerja_waktu']) ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Kinerja Layanan</td>
+                                                                    <td class="text-center"><?= esc($penilaian['nilai_kinerja_layanan']) ?></td>
+                                                                </tr>
+                                                                <tr class="bg-light">
+                                                                    <td class="font-weight-bold">NILAI TOTAL KINERJA</td>
+                                                                    <td class="text-center font-weight-bold"><?= esc($penilaian['nilai_total_kinerja']) ?></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                        <div class="mt-3">
+                                                            <h6 class="font-weight-bold">Catatan:</h6>
+                                                            <p class="border p-2 rounded"><?= esc($penilaian['catatan']) ?></p>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        <?php endforeach; ?>
-                                    <?php else: ?>
-                                        <p>Tidak ada penilaian untuk pekerjaan ini.</p>
-                                    <?php endif; ?>
-                                    <?php $index++; ?>
-                                </div>
-                            <?php endforeach; ?>
-                            <div class="d-flex row justify-content-between">
-                                <div class="form-group col-md-12 mt-2">
-                                    <input type="text" class="form-control text-center bg-primary text-white font-weight-bold"
-                                        id="average-nilai-kinerja" name="average_nilai_kinerja" readonly
-                                        value="Nilai Rata Rata Pekerjaan">
-                                </div>
-                                <div class="col-xl-12 col-md-6 mb-4">
-                                    <div class="card border-left-primary shadow h-100 py-2">
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <div class="h5 text-center font-weight-bold text-primary text-uppercase mb-1">
-                                                        Total Nilai Rata Rata
-                                                    </div>
-                                                    <div class="h3 text-center mb-0 font-weight-bold text-gray-800" id="average-score-display">0</div> <!-- Placeholder for average -->
-                                                </div>
-                                            </div>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <div class="alert alert-info">Tidak ada penilaian untuk pekerjaan ini.</div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
+                            <?php $index++; ?>
+                        <?php endforeach; ?>
                     </div>
-
-
                 </div>
             </div>
         </div>

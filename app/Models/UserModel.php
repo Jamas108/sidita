@@ -34,4 +34,13 @@ class UserModel extends Model
 
         return openssl_decrypt($ciphertext, $cipher, $encryptionKey, 0, $iv);
     }
+
+    public function getUsersByRoleId($role_id)
+{
+    return $this->select('users.*, role_users.role')
+        ->join('role_users', 'role_users.id = users.role_id')
+        ->where('users.role_id', $role_id)
+        ->findAll();
+}
+
 }

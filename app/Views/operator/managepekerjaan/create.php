@@ -56,9 +56,18 @@
                 </div>
                 <div class="form-group" style="font-weight: bold; color:black">
                     <label for="tahun_anggaran">PPK</label>
-                    <input type="text" class="form-control"
-                        placeholder="Masukan PPK" id="ppk" name="ppk"
-                        value="<?= old('ppk', '') ?>">
+                    <select class="form-control <?= session('errors.ppk') ? 'is-invalid' : ''; ?>" id="ppk" name="ppk">
+                        <option value="" selected>Pilih PPK</option>
+                        <?php foreach ($ppkData as $ppk): ?>
+                            <option value="<?= esc($ppk['nama_penyedia']) ?>" data-id="<?= esc($ppk['id']); ?>"> <?= esc($ppk['nama_penyedia'])?></option>
+                        <?php endforeach; ?>
+                        <?php if (session('errors.ppk')): ?>
+                            <div class="invalid-feedback" style="text-align: left;">
+                                <?= session('errors.ppk'); ?>
+                            </div>
+                        <?php endif; ?>
+
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="penyedia" style="font-weight: bold; color:black">Penyedia</label>
@@ -77,7 +86,7 @@
                 </div>
                 <div class="form-group">
                     <label for="nilai_kontrak_ppn" style="font-weight: bold; color:black">Nilai Kontrak</label>
-                    <input type="text" class="form-control"
+                    <input type="number" class="form-control"
                         placeholder="Masukan Nilai Kontrak (Sudah Termasuk PPN)" id="nilai_kontrak_ppn" name="nilai_kontrak_ppn"
                         value="<?= old('nilai_kontrak_ppn', '') ?>">
                 </div>
@@ -122,7 +131,7 @@
                 </div>
                 <div class="form-group">
                     <label for="presentase_kemajuan" style="font-weight: bold; color:black">Presentasi Kemajuan</label>
-                    <input type="text" class="form-control"
+                    <input type="number" class="form-control"
                         placeholder="Masukan Presentase Kemajuan" id="presentase_kemajuan" name="presentase_kemajuan"
                         value="<?= old('presentase_kemajuan', '') ?>">
                 </div>
@@ -154,7 +163,7 @@
 
                 <div class="row mr-0">
                     <div class="col-md-6">
-                        <a href="" class="col-md-12 mb-3 btn btn-secondary btn-icon-split">
+                        <a href="<?= base_url('managepekerjaan') ?>" class="col-md-12 mb-3 btn btn-secondary btn-icon-split">
                             <span class="text">Batal</span>
                         </a>
                     </div>

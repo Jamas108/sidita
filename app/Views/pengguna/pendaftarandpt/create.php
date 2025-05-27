@@ -1,5 +1,6 @@
 <?= $this->extend('pengguna/pendaftarandpt/layout') ?>
 
+
 <?= $this->section('content') ?>
 
 <section id="hero" class="hero section">
@@ -833,8 +834,6 @@
             return ordinals[number - 1] || number + '';
         }
     </script>
-
-
 
 </section>
 

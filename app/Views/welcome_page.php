@@ -68,7 +68,7 @@
                       <?php else: ?>
                         <span class="text-muted">Tidak Ada Berita Acara</span>
                       <?php endif; ?>
-                    <?php else: ?>
+                    <?php elseif ($event['status'] != 'Berjalan'): ?>
                       <a href="<?= base_url('pendaftarandptpengguna') . '?event_id=' . $event['id'] .
                                   '&kualifikasi_usaha=' . urlencode($event['kualifikasi_usaha']) .
                                   '&jenis_kualifikasi_id=' . $event['jenis_kualifikasi_id'] .

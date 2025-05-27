@@ -54,7 +54,7 @@
                     <label for="dokumen_pendukung">Dokumen Pendukung</label>
                     <br/>
                     <?php if (!empty($event['dokumen'])): ?>
-                        <a href="/file/<?= esc($event['dokumen']) ?>" target="_blank" class="form-control btn btn-sm btn-primary" style="width:13%;">
+                        <a href="<?= base_url('uploads/dokumenevent/' . $event['dokumen']) ?>" target="_blank" class="form-control btn btn-sm btn-primary" style="width:13%;">
                         <span class="text">Lihat Dokumen</span>
                         </a>
                     <?php else: ?>

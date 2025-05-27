@@ -46,9 +46,21 @@
                 </div>
                 <div class="form-group">
                     <label for="ppk">PPK</label>
-                    <input type="text" class="form-control"
-                        placeholder="Masukan PPK" id="ppk" name="ppk"
-                        value="<?= esc($pekerjaan['ppk']) ?>">
+                    <select class="form-control <?= session('errors.ppk') ? 'is-invalid' : ''; ?>" id="ppk" name="ppk">
+                        <option value="">Pilih PPK</option>
+                        <?php foreach ($ppkData as $ppk): ?>
+                            <option value="<?= esc($ppk['nama_penyedia']) ?>"
+                                data-id="<?= esc($ppk['id']); ?>"
+                                <?= ($pekerjaan['ppk'] == $ppk['nama_penyedia']) ? 'selected' : ''; ?>>
+                                <?= esc($ppk['nama_penyedia']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <?php if (session('errors.ppk')): ?>
+                        <div class="invalid-feedback" style="text-align: left;">
+                            <?= session('errors.ppk'); ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="form-group">
                     <label for="penyedia">Penyedia</label>
@@ -114,7 +126,7 @@
 
                 <div class="row mr-0">
                     <div class="col-md-6">
-                        <a href="<?= base_url('managepekerjaan') ?>" class="col-md-12 mb-3 btn btn-secondary btn-icon-split">
+                        <a href="<?= base_url('adminmanagepekerjaan') ?>" class="col-md-12 mb-3 btn btn-secondary btn-icon-split">
                             <span class="text">Batal</span>
                         </a>
                     </div>

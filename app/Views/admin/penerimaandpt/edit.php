@@ -71,6 +71,7 @@
                     <label for="status_event" style="width: 100%">Status Event</label>
                     <select class="form-control" name="status" id="status_event">
                         <option value="Pending" <?= old('status', $event['status']) == 'Pending' ? 'selected' : ''; ?>>Pending</option>
+                        <option value="Pendaftaran" <?= old('status', $event['status']) == 'Pendaftaran' ? 'selected' : ''; ?>>Registrasi</option>
                         <option value="Berjalan" <?= old('status', $event['status']) == 'Berjalan' ? 'selected' : ''; ?>>Berjalan</option>
                         <option value="Selesai" <?= old('status', $event['status']) == 'Selesai' ? 'selected' : ''; ?>>Selesai</option>
                     </select>

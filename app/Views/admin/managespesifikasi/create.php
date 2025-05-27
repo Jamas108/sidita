@@ -41,7 +41,7 @@
 
                 <div class="row mr-0">
                     <div class="col-md-6">
-                        <a href="" class="col-md-12 mb-3 btn btn-secondary btn-icon-split">
+                        <a href="<?= base_url('managespesifikasi') ?>" class="col-md-12 mb-3 btn btn-secondary btn-icon-split">
                             <span class="text">Batal</span>
                         </a>
                     </div>

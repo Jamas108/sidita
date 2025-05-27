@@ -65,13 +65,11 @@
                             placeholder="" id="tahun_anggaran" name="tahun_anggaran"
                             value="Alamat Perusahaan" disabled>
                     </div>
-                    <?php foreach ($dptData as $dpt): ?>
-                        <div class="form-group col-md-8">
-                            <input type="text" class="form-control"
-                                placeholder="Masukan Tahun Anggaran" id="tahun_anggaran" name="tahun_anggaran"
-                                value="<?= esc($dpt['alamat']) ?>" disabled>
-                        </div>
-                    <?php endforeach; ?>
+                    <div class="form-group col-md-8">
+                        <input type="text" class="form-control"
+                            placeholder="Masukan Tahun Anggaran" id="tahun_anggaran" name="tahun_anggaran"
+                            value="<?= esc($profilPerusahaan['alamat'] ?? '') ?>" disabled>
+                    </div>
                     <div class="form-group col-md-4">
                         <input style="background-color: #385dcf; color: white" type="text" class="form-control"
                             placeholder="" id="tahun_anggaran" name="tahun_anggaran"
@@ -186,7 +184,7 @@
                     <div class="form-group col-md-8">
                         <input type="number" class="form-control"
                             placeholder="Masukan Nilai (max 3)" id="skor_kinerja_kualitas_dan_kuantitas_pekerjaan" name="skor_kinerja_kualitas_dan_kuantitas_pekerjaan"
-                            value="" oninput="AspekKualitas(this)" min="0" max="3">
+                            value="" oninput="AspekKualitas(this)" min="0" max="3" required>
                     </div>
                     <div class="form-group col-md-4">
                         <input style="color: white" type="text" class="form-control bg-secondary"
@@ -254,7 +252,7 @@
                     <div class="form-group col-md-8">
                         <input type="number" class="form-control"
                             placeholder="Masukan Nilai (max 3)" id="skor_kinerja_biaya" name="skor_kinerja_biaya"
-                            value="" oninput="AspekBiaya(this)" min="0" max="3">
+                            value="" oninput="AspekBiaya(this)" min="0" max="3" required>
                     </div>
                     <div class="form-group col-md-4">
                         <input style="color: white" type="text" class="form-control bg-secondary"
@@ -321,7 +319,7 @@
                     <div class="form-group col-md-8">
                         <input type="number" class="form-control"
                             placeholder="Masukan Nilai (max 3)" id="skor_kinerja_waktu" name="skor_kinerja_waktu"
-                            value="" oninput="AspekWaktu(this)" min="0" max="3">
+                            value="" oninput="AspekWaktu(this)" min="0" max="3" required>
                     </div>
                     <div class="form-group col-md-4">
                         <input style="color: white" type="text" class="form-control bg-secondary"
@@ -394,7 +392,7 @@ b.	Penyedia mudah dihubungi dan berdiskusi dalam penyelesaian pelaksanaan pekerj
                     <div class="form-group col-md-8">
                         <input type="number" class="form-control"
                             placeholder="Masukan Nilai (max 3)" id="skor_kinerja_layanan" name="skor_kinerja_layanan"
-                            value="" oninput="AspekLayanan(this)" min="0" max="3">
+                            value="" oninput="AspekLayanan(this)" min="0" max="3" required>
                     </div>
                     <div class="form-group col-md-4">
                         <input style="color: white" type="text" class="form-control bg-secondary"
@@ -434,8 +432,8 @@ b.	Penyedia mudah dihubungi dan berdiskusi dalam penyelesaian pelaksanaan pekerj
                             value=""></textarea>
                     </div>
                     <input type="text" class="form-control"
-                            placeholder="" id="users_id" name="users_id"
-                            value="<?= esc($user['id']); ?>" hidden>
+                        placeholder="" id="users_id" name="users_id"
+                        value="<?= esc($user['id']); ?>" hidden>
                     <div class="col-md-12">
                         <button type="submit" class="col-md-12 mb-3 btn btn-success">
                             <span class="text">Kirim Penilaian</span>

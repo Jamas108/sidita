@@ -45,6 +45,8 @@ class PekerjaanModel extends Model
     {
         return $this->find($id);
     }
+
+    
     public function getPekerjaanByDptId($dpt_id)
     {
         return $this->where('dpt_id', $dpt_id)->findAll();

@@ -618,7 +618,12 @@
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-
+                </div>
+                <!-- FORM Pekerjaan -->
+                <div class="tab-pane fade" id="pekerjaan-tab-pane" role="tabpanel" aria-labelledby="pekerjaan-tab" tabindex="0">
+                    <div id="pekerjaan-container">
+                        
+                    </div>
                 </div>
             </div>
         </div>

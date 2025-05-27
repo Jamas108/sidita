@@ -48,10 +48,8 @@
             <td>: <?= $pekerjaan['penyedia'] ?? '' ?></td>
         </tr>
         <tr>
-            <?php foreach ($dptData as $dpt): ?>
                 <td>Alamat Perusahaan</td>
-                <td>: <?= esc($dpt['alamat']) ?></td>
-            <?php endforeach; ?>
+                <td>: <?= esc($profilPerusahaan['alamat']) ?></td>
         </tr>
         <tr>
             <td>Paket Pekerjaan</td>

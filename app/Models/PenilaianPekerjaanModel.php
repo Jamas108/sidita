@@ -31,6 +31,18 @@ class PenilaianPekerjaanModel extends Model
     {
         return $this->findAll();
     }
+    public function getPenilaianById($id)
+    {
+        return $this->find($id);
+    }
+
+    public function getPenilaianByPekerjaanId($pekerjaanId)
+{
+    return $this->where('pekerjaan_id', $pekerjaanId)->first();
+    // Or if using query builder:
+    // return $this->db->table('penilaianpekerjaan')->where('id_pekerjaan', $pekerjaanId)->get()->getResultArray();
+}
+
     public function getPenilaianDetail($penilaianId)
     {
         // Gunakan query builder untuk melakukan join antar tabel

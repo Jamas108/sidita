@@ -92,6 +92,7 @@
                         <option value="" selected>Pilih Status</option>
                         <option value="Selesai">Selesai</option>
                         <option value="Berjalan">Berjalan</option>
+                        <option value="Pendaftaran">Registrasi</option>
                         <option value="Pending">Pending</option>
                     </select>
                     <?php if (session('errors.status')): ?>

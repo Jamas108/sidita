@@ -47,7 +47,7 @@
                         placeholder="Unggah File" id="file_bukti_pejabat_berwenang" name="file_bukti_pejabat_berwenang"
                         value="">
                     <?php if (!empty($data['file_bukti_pejabat_berwenang'])): ?>
-                        <a href="/file/<?= esc($data['file_bukti_pejabat_berwenang']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_bukti_pejabat_berwenang']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -68,7 +68,7 @@
                         placeholder="Unggah File" id="file_formulir_keikutsertaan" name="file_formulir_keikutsertaan"
                         value="">
                     <?php if (!empty($data['file_formulir_keikutsertaan'])): ?>
-                        <a href="/file/<?= esc($data['file_formulir_keikutsertaan']) ?>" target="_blank" class="btn btn-primary mt-2" style="">
+                        <a href="<?= esc($data['file_formulir_keikutsertaan']) ?>" target="_blank" class="btn btn-primary mt-2" style="">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -88,7 +88,7 @@
                         placeholder="Unggah File" id="file_surat_pernyataan" name="file_surat_pernyataan"
                         value="">
                     <?php if (!empty($data['file_surat_pernyataan'])): ?>
-                        <a href="/file/<?= esc($data['file_surat_pernyataan']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_surat_pernyataan']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -108,7 +108,7 @@
                         placeholder="Unggah File" id="file_pakta_integritas" name="file_pakta_integritas"
                         value="">
                     <?php if (!empty($data['file_pakta_integritas'])): ?>
-                        <a href="/file/<?= esc($data['file_pakta_integritas']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_pakta_integritas']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -128,7 +128,7 @@
                         placeholder="Unggah File" id="file_akta_pendirian_perusahaan" name="file_akta_pendirian_perusahaan"
                         value="">
                     <?php if (!empty($data['file_akta_pendirian_perusahaan'])): ?>
-                        <a href="/file/<?= esc($data['file_akta_pendirian_perusahaan']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_akta_pendirian_perusahaan']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -148,7 +148,7 @@
                         placeholder="Unggah File" id="file_surat_keterangan_domisili" name="file_akta_pendirian_perusahaan"
                         value="">
                     <?php if (!empty($data['file_surat_keterangan_domisili'])): ?>
-                        <a href="/file/<?= esc($data['file_surat_keterangan_domisili']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_surat_keterangan_domisili']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -168,7 +168,7 @@
                         placeholder="Unggah File" id="file_nib" name="file_nib"
                         value="">
                     <?php if (!empty($data['file_nib'])): ?>
-                        <a href="/file/<?= esc($data['file_nib']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_nib']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -188,7 +188,7 @@
                         placeholder="Unggah File" id="file_siup" name="file_siup"
                         value="">
                     <?php if (!empty($data['file_siup'])): ?>
-                        <a href="/file/<?= esc($data['file_siup']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_siup']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -208,7 +208,7 @@
                         placeholder="Unggah File" id="file_siujk" name="file_siujk"
                         value="">
                     <?php if (!empty($data['file_siujk'])): ?>
-                        <a href="/file/<?= esc($data['file_siujk']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_siujk']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -228,7 +228,7 @@
                         placeholder="Unggah File" id="file_sbu" name="file_sbu"
                         value="">
                     <?php if (!empty($data['file_sbu'])): ?>
-                        <a href="/file/<?= esc($data['file_sbu']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_sbu']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -248,7 +248,7 @@
                         placeholder="Unggah File" id="file_pendukung_kualifikasi" name="file_pendukung_kualifikasi"
                         value="">
                     <?php if (!empty($data['file_pendukung_kualifikasi'])): ?>
-                        <a href="/file/<?= esc($data['file_pendukung_kualifikasi']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_pendukung_kualifikasi']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -268,7 +268,7 @@
                         placeholder="Unggah File" id="file_pendukung_kualifikasi2" name="file_pendukung_kualifikasi2"
                         value="">
                     <?php if (!empty($data['file_pendukung_kualifikasi2'])): ?>
-                        <a href="/file/<?= esc($data['file_pendukung_kualifikasi2']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_pendukung_kualifikasi2']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>
@@ -288,7 +288,7 @@
                         placeholder="Unggah File" id="file_pendukung_kualifikasi3" name="file_pendukung_kualifikasi3"
                         value="">
                     <?php if (!empty($data['file_pendukung_kualifikasi3'])): ?>
-                        <a href="/file/<?= esc($data['file_pendukung_kualifikasi3']) ?>" target="_blank" class="btn btn-primary mt-2">
+                        <a href="<?= esc($data['file_pendukung_kualifikasi3']) ?>" target="_blank" class="btn btn-primary mt-2">
                             Lihat File
                         </a>
                     <?php else: ?>

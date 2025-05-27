@@ -168,6 +168,7 @@ $routes->group('', ['filter' => 'role:4'], function ($routes) {
     $routes->get('showpengumuman/(:num)', 'PenyediaController::showPengumuman/$1');
     // INFORMASI DPT PENYEDIA ROUTE
     $routes->get('managedptpenyedia', 'ManageDptPenyediaController');
+    $routes->get('detailriwayatpekerjaanpenyedia/(:num)', 'ManageDptPenyediaController::detailRiwayatPekerjaan/$1');
     $routes->get('editdatapenyedia/(:num)', 'ManageDptPenyediaController::editDataPenyedia/$1');
     $routes->post('updatedatapenyedia/(:num)', 'ManageDptPenyediaController::updateDataPenyedia/$1');
     // INFORMASI DPT PENYEDIA ROUTE
@@ -192,3 +193,4 @@ $routes->get('pendaftarandptpengguna', 'APIMataUangController::showForm');
 
 $routes->get('file/(:any)', 'FileController::show/$1');
 $routes->get('filepekerjaan/(:any)', 'FileController::showDokumenPekerjaan/$1');
+$routes->get('uploads/(:any)', 'FileController::showDokumenPekerjaan/$1');

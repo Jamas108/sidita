@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\DptModel;
 use App\Models\PekerjaanModel;
 use App\Models\PenilaianPekerjaanModel;
+use App\Models\ProfilPerusahaanModel;
 use App\Models\UserModel;
 use CodeIgniter\I18n\Time;
 use Dompdf\Dompdf;
@@ -17,20 +18,27 @@ class ReviewPekerjaanPpkController extends BaseController
     public function index()
     {
         $pekerjaanModel = new PekerjaanModel();
-        $penilaianModel = new PenilaianPekerjaanModel(); // Model for penilaian_pekerjaan table
-        $userId = session()->get('user_id'); // Get the current user's ID
+        $penilaianModel = new PenilaianPekerjaanModel();
+        $userModel = new UserModel(); // Add this line to use the UserModel
+        $userId = session()->get('user_id');
 
-        // Fetch all jobs
-        $dataPekerkjaan = $pekerjaanModel->findAll();
+        // Get the current user's details
+        $currentUser = $userModel->find($userId);
+
+        // Get the PPK name from nama_penyedia field
+        $ppkName = $currentUser['nama_penyedia'];
+
+        // Fetch only jobs where ppk field matches the current user's nama_penyedia
+        $dataPekerkjaan = $pekerjaanModel->where('ppk', $ppkName)->findAll();
 
         // Check if the user has rated each job
         foreach ($dataPekerkjaan as &$data) {
             $hasRated = $penilaianModel
                 ->where('users_id', $userId)
                 ->where('pekerjaan_id', $data['id'])
-                ->first(); // Retrieve if there's any entry for this job and user
+                ->first();
 
-            $data['hasRated'] = !empty($hasRated); // true if rated, false otherwise
+            $data['hasRated'] = !empty($hasRated);
         }
 
         return view('ppk/reviewpekerjaan/index', ['dataPekerkjaan' => $dataPekerkjaan]);
@@ -111,12 +119,23 @@ class ReviewPekerjaanPpkController extends BaseController
         $pekerjaanModel = new PekerjaanModel();
         $dptModel = new DptModel();
         $userModel = new UserModel();
+        // Perlu menambahkan model profil perusahaan
+        $profilPerusahaanModel = new ProfilPerusahaanModel();
 
         // Ambil data pekerjaan berdasarkan ID
         $pekerjaan = $pekerjaanModel->find($id);
         $user = $userModel->find($user_id);
 
-        // Ambil data dengan status_dpt_id 1
+        // Ambil data dpt spesifik berdasarkan dpt_id dari pekerjaan
+        $dpt = $dptModel->find($pekerjaan['dpt_id']);
+
+        // Ambil data profil perusahaan berdasarkan profil_perusahaan_id dari dpt
+        $profilPerusahaan = null;
+        if ($dpt) {
+            $profilPerusahaan = $profilPerusahaanModel->find($dpt['profil_perusahaan_id']);
+        }
+
+        // Ambil data dengan status_dpt_id 1 (tetap pertahankan jika diperlukan di tempat lain)
         $dptData = $dptModel->getDptWithProfileEmail();
 
         if (!$pekerjaan) {
@@ -141,15 +160,15 @@ class ReviewPekerjaanPpkController extends BaseController
             $jangkaWaktu .= ($jangkaWaktu ? " " : "") . $sisaHari . " hari";
         }
 
-
         return view('ppk/reviewpekerjaan/nilai', [
             'pekerjaan' => $pekerjaan,
             'dptData' => $dptData,
+            'profilPerusahaan' => $profilPerusahaan,
             'jangkaWaktu' => $jangkaWaktu,
             'user' => $user
-
         ]);
     }
+
     public function store($id)
     {
         // Inisialisasi model
@@ -205,11 +224,19 @@ class ReviewPekerjaanPpkController extends BaseController
         $penilaianModel = new PenilaianPekerjaanModel();
         $dptModel = new DptModel();
         $dptData = $dptModel->getDptWithProfileEmail();
+        $profilPerusahaanModel = new ProfilPerusahaanModel();
 
         // Ambil data pekerjaan berdasarkan ID
         $pekerjaan = $pekerjaanModel->find($id);
         if (!$pekerjaan) {
             return redirect()->to('managereviewpekerjaan')->with('error', 'Data pekerjaan tidak ditemukan.');
+        }
+
+        $dpt = $dptModel->find($pekerjaan['dpt_id']);
+
+        $profilPerusahaan = null;
+        if ($dpt) {
+            $profilPerusahaan = $profilPerusahaanModel->find($dpt['profil_perusahaan_id']);
         }
 
         // Ambil penilaian berdasarkan pekerjaan_id dan users_id
@@ -250,6 +277,7 @@ class ReviewPekerjaanPpkController extends BaseController
             'penilaian' => $penilaian, // Penilaian dari pengguna yang sedang login
             'dptData' => $dptData,
             'durasi' => $durasi,
+            'profilPerusahaan' => $profilPerusahaan,
         ]);
 
         // Load HTML ke Dompdf
